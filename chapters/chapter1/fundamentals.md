@@ -161,7 +161,7 @@ To assign a non-printing character, such as the newline character, to a variable
 char newLineChar = '\n';
 ```
 
-:bulb: Quick Tip: Notice that the single quote character (') is used above. You cannot assign a character to a `char` type variable using the double-quotes character ("), as this is how you assign `String` literals. We will talk about the `String` class in the [Introducing Classes](#Introducing_Classes) section.
+:bulb: Quick Tip: Notice that the single quote character (') is used above. You cannot assign a character to a `char` type variable using the double-quotes character ("), as this is how you assign `String` literals. We will talk about the `String` class in the [Introducing Classes](#Introducing-Classes) section.
 
 :pencil2: Note that the `char` data type only allows positive values. This is known as an *unsigned* value, because a negative number cannot be stored, and the sign for a positive value is understood.
 
