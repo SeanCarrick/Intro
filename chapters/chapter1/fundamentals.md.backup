@@ -89,7 +89,7 @@ In Java, characters are stored in the `char` data type. This data type is used f
 ### Booleans
 Boolean values only represent state, so to speak. The only two values allowed for a boolean data type are `true` or `false`. In Java, the primitive type is `boolean`.
 
-:mag: Booleans come from boolean algebra, which was invented by George Boole (November 2, 1815&mdash;December 8, 1864). He was an English mathematician who helped establish modern symbolic logic and whose algebra of logic, now called Boolean algebra, is basic to the design of digital computer circuits[^1].
+:mag: Booleans come from boolean algebra, which was invented by George Boole (November 2, 1815&mdash;December 8, 1864). He was an English mathematician who helped establish modern symbolic logic and whose algebra of logic, now called Boolean algebra, is basic to the design of digital computer circuits<sup>[1](#bool)</sup>.
 
 ## Operators
 
@@ -99,6 +99,7 @@ Boolean values only represent state, so to speak. The only two values allowed fo
 
 ## Introducing Packages
 
-[^1] Information from [Encyclopaedia Britannica](https://www.britannica.com/biography/George-Boole))
+###### See Also
+<sup><a name="bool" href="#1">1</sup> Information from [Encyclopaedia Britannica](https://www.britannica.com/biography/George-Boole))
 
 [< Previous](java_language.md) | [[Table of Contents]](../../Cover_and_Contents.md) | [Next >](tools.md)
