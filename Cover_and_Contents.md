@@ -9,6 +9,7 @@ Brought to you by: ![PekinSOFT Systems Logo](images/PekinSOFT-Logo.png)
 ## [Table of Contents]
 
 i. [About the Author](chapters/author.md)
+
 ii. [Preface](chapters/preface.md)
 
 1. The Java Programming Language
