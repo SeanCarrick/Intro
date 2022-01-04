@@ -1,3 +1,5 @@
+[[Table of Contents]](../../Cover_and_Contents.md) | [Next >](preface.md)
+
 # i. About the Author
 Pekin<sup>SOFT</sup> Systems:tm: is a computer consulting company located in Pekin, IL, and owned by the author, Sean Carrick. Sean has been around computers and programming since 1983, and has been professionally involved with computers, in one way or another, since 1996. Most of his professional experience in the Information Technology (IT) field has revolved around computer programming, from his time as a network/systems administrator, through his time working as a 32-bit Microsoft Visual Basic programmer, right up to today writing J2SE/Swing applications in Java.
 
@@ -14,3 +16,5 @@ It is our belief that if you embark upon this journey, you will gain a great und
 We truly do hope that you will enjoy this book and find all of the joys that are Java programming!
 
 &mdash; The Pekin<sup>SOFT</sup> Systems:tm: Team
+
+[[Table of Contents]](../../Cover_and_Contents.md) | [Next >](preface.md)
