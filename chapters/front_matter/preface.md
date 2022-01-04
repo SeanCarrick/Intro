@@ -1,5 +1,5 @@
 # ii. Preface
-Typically, a book such as this one would begin by explaining the prerequisites to use the material taught in it. However, as you most likely found this book because you are interested in learning how to program in Java, I are going to assume that you already have what you need and just want to get to learning the Java programming language. Be that as it may, I am going to list the prerequisites very quickly, just to "comply with the norm":wink:.
+Typically, a book such as this one would begin by explaining the prerequisites to use the material taught in it. However, as you most likely found this book because you are interested in learning how to program in Java, I am going to assume that you already have what you need and just want to get to learning the Java programming language. Be that as it may, I am going to list the prerequisites very quickly, just to "comply with the norm":wink:.
 
 * Access to a computer on which you have the ability to install software.
 * The Java Development Kit (JDK) [OpenJDK](https://openjdk.java.net/) or [Oracle JDK](https://oracle.com/java/).
