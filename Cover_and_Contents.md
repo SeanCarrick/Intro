@@ -8,9 +8,9 @@ Brought to you by: ![PekinSOFT Systems Logo](images/PekinSOFT-Logo.png)
 
 ## [Table of Contents]
 
-i. [About the Author](chapters/author.md)
+i. [About the Author](chapters/front_matter/author.md)
 
-ii. [Preface](chapters/preface.md)
+ii. [Preface](chapters/front_matter/preface.md)
 
 1. The Java Programming Language
    1. Fundamentals
