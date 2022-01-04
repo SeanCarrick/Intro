@@ -12,8 +12,8 @@ i. [About the Author](chapters/front_matter/author.md)
 
 ii. [Preface](chapters/front_matter/preface.md)
 
-1. The Java Programming Language
-   1. Fundamentals
+1. [The Java Programming Language](chaters/chapter1/java_language.md)
+   1. [Fundamentals](chapters/chapter1/fundamentals.md)
    2. Tools
    3. Features
    4. Creating a Terminal Project
