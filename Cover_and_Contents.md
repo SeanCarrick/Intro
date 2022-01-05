@@ -14,7 +14,7 @@ ii. [Preface](chapters/front_matter/preface.md)
 
 1. [The Java Programming Language](chapters/chapter1/java_language.md)
    1. [Fundamentals](chapters/chapter1/fundamentals.md)
-   2. Tools
+   2. [Tools](chapters/chapter1/tools.md)
    4. Creating a Terminal Project
    5. Creating a Desktop Project
    5. Conclusion
