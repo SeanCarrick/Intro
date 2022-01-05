@@ -38,3 +38,5 @@ This chapter *should be* short and sweet, because I'm just going to talk briefly
 | `unpack200` | Opposite of `pack200`: transforms a packed file into a JAR file for web deployment. |
 
 That's a lot of tools! While you won't use a lot of these tools, at least this page will be here for your reference if you decide to try them out.
+
+With that done, let's build our first Java application...
