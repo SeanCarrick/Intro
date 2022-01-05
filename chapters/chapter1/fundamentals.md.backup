@@ -768,7 +768,7 @@ As you can see, while we made the same modifications to the logic, the readabili
 
 :dart: The best practice is to use `if...else if...else` blocks only where the `switch` statement cannot be used.
 
-That's enough on selection statements 
+That's enough on selection statements, let's move onto iteration (loop) statements... 
 
 ### Iteration Statements
 Iteration statements are just that, statements that let you iterator over a specific block of code multiple times. These types of statements are commonly referred to as *loops*. The common types of iteration statements are: `while`, `do-while`, `for`, enhanced `for` (also called `for-each`). Let's look at each of these in turn, beginning with the `while` loop.
@@ -785,9 +785,9 @@ while ([condition]) {
 As a quick example of this type of loop, consider the following example:
 
 ```java
-int x = 10;
+int x = 5;
 
-while (x > 0) {
+while (x > 5) {
 	System.out.println("T minus " + x--);
 }
 ```
@@ -795,17 +795,10 @@ while (x > 0) {
 The output from this simple example would be:
 
 ```
-T minus 10
-T minus 9
-T minus 8
-T minus 7
-T minus 6
-T minus 5
-T minus 4
-T minus 3
-T minus 2
-T minus 1
+ 
 ```
+
+That's right, no output! This is because five *is not* greater than 5.
 
 As we discussed in the section on operators, this loop simply executes the line that prints the message to the terminal and decrements the variable `x` *after* it uses its value. In the operators section, I showed the reverse, where the variables were incremented and decremented *before* using the values.
 
@@ -817,13 +810,191 @@ This loop works *exactly* the same as the `while` loop, with the simple exceptio
 ```
 do {
 	[body of loop]
-} while ([condition])
+} while ([condition]);
 ```
 
+Let's use the same loop as before, but converting to a `do-while` loop, then see what *its* output will be:
+
+```java
+int x = 5;
+
+do {
+	System.out.println("T minus " + x--);
+} while (x > 5);
+```
+
+The output from this example would be:
+
+```
+T minus 5
+```
+
+So, the `do-while` loop executed exactly one time because the check for `x > 5` was at the bottom of the loop. To be completely, honest here, it took me a while to get these two loops to do what I wanted them to because it's very rare that I need a loop to execute once, regardless. These two samples were somewhere around my third or fourth attempt to get the `while` loop to output nothing, while (pun intended :wink:) the `do-while` output a single line. Sometimes, the simplest things can be the hardest :confused:.
+
+With that embarrassment behind me, let's move on to `for` loops...
+
+#### `for` Loops
+In the *Increment and Decrement Operators* section, you already saw an example of a `for` loop, but we need to actually discuss it now, so that you will understand what it was doing and how it worked. So, let's just take a look at that loop again here:
+
+```java
+public static void main(String[] args) {
+	int varOne = 0;
+	int varTwo = 10;
+	
+	for (int x = 0; x < 10; x++) {
+		System.out.println(String.format("varOne = %s and varTwo = %s", ++varOne, --varTwo));
+	}
+}
+```
+
+Now that I have pasted that same example here, let's break down the `for` loop statement:
+
+* `for()`: this is the signature line of the `for` loop. The keyword `for` identifies the type of loop that it is, and the looping information is contained within the parenthesis.
+* `int x = 0;`: the `x` is declared and initialized in this statement and is the loop control variable. In other words, the value of `x` will change each time the loop is run, and its value will be tested to see whether the loop should continue or not.
+* `x < 10;`: this is the conditional test statement. What this says is that the loop will execute until such time as `x` has the value 10, at which time the loop will exit.
+* `x++`: this is the loop control variable incrementing statement. Each time the loop executes, the value of `x` will be incremented by this statement.
+
+So, the proper way to define a `for` loop is as so:
+
+```
+for ([declare loop control variable] = [initial value]; [conditional test]; [increment])
+```
+
+The order that the statements in the `for` signature are executed is as follows:
+
+* First time through the `for` loop:
+   1. `x` is declared and initialized.
+   2. `x` is tested to see if the condition is true.
+   3. If the condition is true, the body is executed.
+   4. `x` is incremented by one.
+* Second time through the `for` loop:
+   1. `x` is tested to see if the condition is true.
+   2. If the condition is true, the body is executed.
+   3. `x` is incremented by one.
+* Each successive time through the `for` loop:
+   1. `x` is tested to see if the condition is true.
+   2. If the condition is true, the body is executed.
+   3. `x` is incremented by one.
+* Once the conditional test fails (evaluates to `false`), the loop is exited.
+
+Therefore, in our example, the first time into the body of the loop, `x == 0`, so the test evaluates to `true`, which allows the body of the loop to be executed. Once the `x++` signature segment increments `x`, the conditional test is evaluated again. This cycle continues as long as the conditional test evaluates to `true`. The last time the body of this loop is executed, `x` has the value of 9, and `x` has a value of 10 after the loop exits, due to the last incrementing of its value. The thing to remember is that we started `x`'s value at zero, so the loop executes 10 times until `x`'s value becomes 10. Initializing to zero will become the *de facto* way that you will set up your `for` loops, simply because you will normally be working with arrays inside the body, and array elements are zero-based.
+
+Having mentioned working with arrays inside of the `for` loops, let's transition on that to the Enhanced `for` loop...
+
+#### Enhanced `for` Loop
+As I had just mentioned, you will usually set up your `for` loop's control variable as being initialized to zero because you *usually* are accessing array elements in the body of the loop. The Java engineers and developers notice this, so they came up with an easier way of accessing each element of an array in a `for` loop: *the enhanced `for` loop*.
+
+The enhanced `for` loop works similarly to the *regular* `for` loop, except it has been enhanced for arrays. The way you declare the enhanced `for` loop is as follows:
+
+```
+for ({Type} variable : array) {
+	[body]
+}
+```
+
+So, in the past, we would iterate over arrays in this fashion, using the original `for` loop:
+
+```java
+int[] intArray = {158, 275, 619, 489, 249};
+
+for (int x = 0; x < intArray.length; x++) {
+	System.out.println(String.format("intArray[%s] == %s", x, intArray[x]));
+}
+```
+The output from this would be:
+```
+intArray[0] == 158
+intArray[1] == 275
+intArray[2] == 619
+intArray[3] == 489
+intArray[4] == 249
+```
+
+Using the enhanced `for` loop, the same loop would work like this:
+
+```java
+int[] intArray = {158, 275, 619, 489, 249};
+int x = 0;
+
+for (int i : intArray) {
+	System.out.println(String.format("intArray[%s] == %s", x++, i));
+}
+```
+The output from this would be:
+```
+intArray[0] == 158
+intArray[1] == 275
+intArray[2] == 619
+intArray[3] == 489
+intArray[4] == 249
+```
+As you can see, the output is identical, but only because I declared a variable `int x = 0` in the example of the enhanced `for` loop and incremented (`x++`) in the print statement. Again, the print statement used the value of `x` *then* incremented it, so the first time through the loop, `x == 0`. Other than that one, small thing, the `for` and enhanced `for` loops are virtually identical in functionality.
+
+Remember how I mentioned that it is difficult to teach one aspect of Java without touching on other, as yet not introduced, aspects of Java. Well, here is a good example of that. We need to cycle back to talking about variable life times right now...
+
+In the section on variables, I had mentioned that variables have a life span of the block in which they are declared. Remember? A variable declared at the class level has the life span of the class (and is accessible anywhere within the class). Variables declared in a method have a life span of that method (and can be accessed anywhere within the method). A variable declared in the `if` ***or*** `else if` ***or*** `else` block are only alive while that block is alive. Once execution passes out of one of these blocks, the variable no longer exists. 
+
+The same holds true for loop control variables...sort of. If you look carefully at a `for`, enhanced `for`, `while`, or `do-while` loop signature, you will see that the loop control variables are, technically speaking, declared *outside* of the loop block. Remember, a block of code is determined by the opening (`{`) and closing (`}`) curly braces. The loop control variables for the various loops either *are* or ***can be*** declared in the parenthetical portion of the loop signature. Even though that is outside of the loop block, those variables only live for the life of the loop.
+
+I mentioned all of that to bring us to this: if you declare a variable *inside* the block of a loop, not only is it only available within the body of the loop, but it is also *only* available for ***that one iteration*** of the loop. I wanted to bring this up for two reasons: 1) so that you would not get frustrated with the value of such a variable not being what you thought it should be after a certain number of executions of the loop; and, 2) if you ever get a trivia question asking what is the shortest possible life time of a variable, you will know the answer is one declared within the body of a loop, because it only lives for that one loop cycle.:wink:
+
+### Conclusion
+In this section, you were introduced to the various control structure available in Java, including the `if`, `if-else`, `if-else if-else`, `switch` statements, and the `while`, `do-while`, `for`, and enhanced `for` loops. You have seen the way each of these control statements are defined, as well as, at least one, example of each. You have learned that control structures are used to direct the flow of execution of your program by either branching to specific code based upon a condition, or by executing the same code based upon a condition.
+
+With the sections on *Data Types, Variables, and Arrays*, *Operators*, and *Control Statements* under your belt, you now have the foundation upon which we will be able to discuss writing applications in Java. However, these subjects only get you so far. Before we can say the basics are all in our rear view mirror, we still need to cover the two building blocks of Java applications: classes and packages. We will start with classes first.
 
 ## Introducing Classes
+:zzz::zzz::zzz:Continuing the boring stuff, but classes are ***very*** important, as they are the building blocks of every single Java program. So, we *must* press on...**bravely**.:zzz::zzz::zzz:
+
+Having said that, let's begin by saying that all of the stuff you have learned thus far need to be placed somewhere in order to be useful and functional. So, where do you put all of that? The answer is, in classes.
+
+Believe it or not, there is no such thing as executable Java code residing outside of a class. Go ahead...Open a text editor and try to write a method or two and run it without it being inside of a class. I will guarantee you that the compiler will throw major conniptions! It just cannot happen!
+
+All you need to know about a class right now is that it contains all of the executable Java code. In most languages, C/C++ comes immediately to mind, a class is defined as being a representative of a real-world object, such as a computer or a database. There are some C/C++ executable files that only have methods and functions in them, without defining a class. This is ***not*** the *Java way*...
+
+When you create a Java source code file, you will define a class. There are certain rules that must be followed when doing so. For instance, the name of the file (not including the `.java` extension) needs to be the same as the name of the class it contains. As an example:
+
+```java
+public class MyClass {
+
+}
+```
+
+This class would need to be in a `.java` file named `MyClass.java`. The reason for this is that when the Java compiler is run against the file, it is going to create another file called `MyClass.class`. This is ***not*** an executable file like you would get in C/C++ when you run the compiler against the `.c` or `.cpp` file. Instead, this file contains *byte code*. Byte code is the intermediate state of a compiled Java program. This byte code gets read in and interpreted by the Java Virtual Machine (JVM) when the program is executed. The JVM translates this byte code to the appropriate machine language that can be understood by the hardware and operating system on which the application is being run. 
+
+The `.class` file does not have such niceties as `public class MyClass` in it. Its contents are binary...In other words, they *are* compiled, but only to the binary language that the JVM understands. Therefore, the compiler creates that `.class` file with the same name as the `.java` file, which *is* the class name to the JVM. So, if you declared your `MyClass` class in a file called `YourClass.java`, once compiled, the JVM would have no clue what the references to `MyClass` are, as it only knows about the `YourClass` class.
+
+This was all greatly oversimplified, but I think it gets the point across: The name of the class ***must*** be the same name as the file in which it resides. For now, this is all you need to know about classes:
+
+* The class name should always start with a capital letter.
+* The class name should use camelback notation if it is made up of more than one word: MyClass &mdash; Each word of the name capitalized.
+* The class must be declared in a `.java` file of the same name.
+* A Java class is declared with the keyword `class`.
+
+The rest of the information regarding classes you will learn as we encounter them. So, let's move on to Java packages.
 
 ## Introducing Packages
+In Java, all source code is managed and organized into packages. A package is nothing more than a directory structure on your hard drive. Java packages are typically named in *reverse domain name* order. For example, let's say we are a company named MyCo and we have a project named Recipes. Our top-level domain name for our website is https://myco.com and we have a website for our project at https://recipes.myco.com. Since we are building that project in Java, we will want to arrange our source code files inside of packages, so our top-level package will be named `com.myco.recipes`: the reverse domain name of the project's website.
+
+The reason that this is the standard in Java is that Java has no concept of name spaces, not beyond the package anyway. So, to prevent naming collisions between classes, every person and company that develops Java applications uses the package naming convention to separate their classes from similarly named classes that are created by someone else or some other company. For example, there is the class `java.util.logging.Logger` which provides the ability to generate logging output from an application to the terminal window and/or a log file. There is also the logging class `org.apache.log4j.Logger`, which does the same thing, but offers enhancements (and at the time of this writing a major vulnerability). I have even created my own custom logger, which has the full name of `com.pekinsoft.logging.Logger`. All three of these classes, written by three different entities, provide similar functionality to one another. Since all three of them have the same class name, `Logger`, they need to be differentiated somehow, and that is what the package is for.
+
+Now that you understand a little bit about package naming and its purpose, let's look at what the package `com.myco.recipes` would correlate to on disk:
+
+```
+Recipes
+└── [4.0K]  src
+    └── [4.0K]  com
+        └── [4.0K]  myco
+            └── [4.0K]  recipes
+```
+ This example is assuming that we placed all of our source code under a project folder named `Recipes`, and under a folder named `src` just to keep ourselves organized, and to keep our source code files separate from our compiled `*.class` files. We would simply tell our build tool, via its configuration file, that the package structure starts with the first folder under the folder called `src`. When we compile and place this project into a distributable Java ARchive (JAR) file, the name of the JAR file will be `com.myco.recipes.jar`, by default. However, that can be modified through the build tool's configuration file to be named whatever your prefer. However, this is getting way out of the scope of this book.
+
+With this information, I believe that you have enough understanding to continue on, so we will wrap this discussion here. 
+
+## Fundamentals Conclusion
+In this chapter, we have talked about the primitive data types (and their wrapper classes), variables, arrays, available operators, control statements, iteration statements, classes, and packages. All of this should give you a loose foundation upon which we can continue building knowledge and understanding for me to be able to bring you the rest of the way without completely losing you. Unfortunately, we had to spend this *incredibly* boring time together. Hopefully, once we get out of Chapters 1 and 2 (dealing with Apache NetBeans), things will get a lot more fun!
+
+The next chapter, Tools, is going to be short because it is just going to be a quick look at the command line tools that come with the JDK. Once we blow through that chapter, we will finally get our hands dirty and write some code. It won't be exciting code, but it's better than all of this "book lernin"! :laughing:
 
 ###### See Also
 <sup><a name="bool" href="#1">1</sup> Information from [Encyclopaedia Britannica](https://www.britannica.com/biography/George-Boole)
