@@ -367,13 +367,13 @@ These operators only work on *boolean* operands. In other words, the value on ea
 | Operator | Definition |
 | :------: | :--------- |
 | & | Logical AND |
-| | | Logical OR |
+| \| | Logical OR |
 | ^ | Logical XOR (exclusive OR) |
-| || | Short-circuit OR |
+| \|\| | Short-circuit OR |
 | && | Short-circuit AND |
 | ! | Logical unary NOT |
 | &= | AND assignment |
-| |= | OR assignment |
+| \|= | OR assignment |
 | ^= | XOR assignment |
 | == | Equal to |
 | != | Not equal to |
@@ -414,7 +414,7 @@ I know, my variable names are just plain stupid :blush:...My apologies for that.
 
 The last one, the *ternary* operator, is a special operator that needs just a bit more explanation. This explanation, by the way, will make a nice segue into our next topic, Control Statements.
 
-As you will learn in the next section, on of the most used control statements in Java (or any programming language for that matter) is the `if`...`then`...`else` statement. In practically every language, calling this construct a statement is actually a misnomer because it is actually a block (or two) of code. The basic format of the if...then...else structure in Java is:
+As you will learn in the next section, one of the most used control statements in Java (or any programming language for that matter) is the `if`...`then`...`else` statement. In practically every language, calling this construct a statement is actually a misnomer because it is actually a block (or two) of code. The basic format of the if...then...else structure in Java is:
 
 ```
 if ([comparison test for true]) {
@@ -771,7 +771,7 @@ As you can see, while we made the same modifications to the logic, the readabili
 That's enough on selection statements, let's move onto iteration (loop) statements... 
 
 ### Iteration Statements
-Iteration statements are just that, statements that let you iterator over a specific block of code multiple times. These types of statements are commonly referred to as *loops*. The common types of iteration statements are: `while`, `do-while`, `for`, enhanced `for` (also called `for-each`). Let's look at each of these in turn, beginning with the `while` loop.
+Iteration statements are just that, statements that let you iterate over a specific block of code multiple times. These types of statements are commonly referred to as *loops*. The common types of iteration statements are: `while`, `do-while`, `for`, enhanced `for` (also called `for-each`). Let's look at each of these in turn, beginning with the `while` loop.
 
 #### `while` Loop
 This is Java's most fundamental loop. It will continue to execute as long as its controlling expression (test) returns `true`. The basic format of this loop is:
